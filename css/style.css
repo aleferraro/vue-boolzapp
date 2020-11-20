@@ -1,0 +1,60 @@
+/* DEBUG */
+
+.debug .container {
+  border: 1px solid red;
+}
+
+.debug .container .leftApp, .debug .container .rightApp {
+  border: 1px solid blue;
+  height: 100%;
+}
+
+.debug .container .leftApp > *, .debug .container .rightApp > * {
+  border: 1px solid purple;
+}
+
+.debug .nav, .debug .alert, .debug .search, .debug .footer {
+  height: 100px;
+}
+
+.debug .contacts {
+  height: calc(100% - 300px);
+}
+
+.debug .main {
+  height: calc(100% - 200px);
+}
+
+
+/* Proprietà */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  height: 100vh;
+  background-image: linear-gradient(to bottom,
+    #009688 0px,
+    #009688 15vh,
+    #dddbd1 15vh,
+    #d2dbdc 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  height: 90vh;
+  width: 80vw;
+  display: flex;
+}
+
+.container .leftApp {
+  width: 30%;
+}
+
+.container .rightApp {
+  width: 70%;
+}
