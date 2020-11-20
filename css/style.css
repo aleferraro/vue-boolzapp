@@ -13,20 +13,41 @@
   border: 1px solid purple;
 }
 
-.debug .nav, .debug .alert, .debug .search, .debug .footer {
+.debug .footer {
   height: 100px;
 }
 
-.debug .contacts {
-  height: calc(100% - 300px);
-}
-
 .debug .main {
-  height: calc(100% - 200px);
+  height: calc(100% - 160px);
 }
 
 
-/* Proprietà */
+/* USEFUL PROPERTIES */
+.circle {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.grey {
+  color: grey;
+}
+
+i {
+  color: #B1B1B1;
+}
+
+.btn {
+  background-color: white;
+  border: none;
+  margin: 0 0.5rem;
+}
+
+/* Layout Properties */
 
 * {
   box-sizing: border-box;
@@ -52,9 +73,73 @@ body {
 }
 
 .container .leftApp {
-  width: 30%;
+  width: 35%;
 }
 
 .container .rightApp {
-  width: 70%;
+  width: 65%;
+}
+
+.nav, .alert {
+  height: 60px;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #EAEAEA;
+}
+
+.leftApp .nav .user > img {
+  vertical-align: text-top;
+  margin: 0 0.5rem;
+}
+
+.leftApp .nav i {
+  margin: 0 0.5rem;
+}
+
+.leftApp .alert {
+  background-color: #8EDAFC;
+  display: flex;
+  align-items: center;
+}
+
+.leftApp .alertIcon {
+  background-color: white;
+  color: #8EDAFC;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0.5rem;
+}
+
+.search {
+  background-color: #FAFAFA;
+  height: 40px;
+  padding: 0.5rem;
+  display: flex;
+}
+
+.search > input {
+  width: 100%;
+  border: 1px solid lightgrey;
+  padding-left: 0.5rem;
+}
+
+.leftApp .contacts {
+  background-color: white;
+  height: calc(100% - 160px);
+}
+
+.leftApp .contact {
+  height: 70px;
+  display: flex;
+  align-items: center;
+}
+
+.leftApp .contact img {
+  vertical-align: text-top;
+  margin: 0 0.5rem;
 }

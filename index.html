@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Boolzapp</title>
 
     <!-- Frameworks CSS -->
 
@@ -36,10 +36,40 @@
     <div id="root">
       <div class="container">
         <div class="leftApp">
-          <div class="nav"></div>
-          <div class="alert"></div>
-          <div class="search"></div>
-          <div class="contacts"></div>
+          <div class="nav">
+            <div class="user">
+              <img :src="mainUser.imageUrl" :alt="mainUser.name" class="circle">
+              {{mainUser.name }}
+            </div>
+            <div>
+              <i class="fas fa-circle-notch"></i>
+              <i class="fas fa-comment-alt"></i>
+              <i class="fas fa-ellipsis-v"></i>
+            </div>
+          </div>
+          <div class="alert">
+            <div class="alertIcon circle">
+              <i class="fas fa-bell-slash"></i>
+            </div>
+            <div class="alertMessage">
+              <p>Ricevi notifiche di nuovi messaggi</p>
+              <p class="grey underline">Attiva notifiche desktop</p>
+            </div>
+          </div>
+          <div class="search">
+            <button class="btn">
+              <i class="fas fa-search"></i>
+            </button>
+            <input type="text" name="searcContacts" value="" placeholder="cerca o inizia una nuova chat">
+          </div>
+          <div class="contacts">
+            <div class="contact" v-for="contact in contacts">
+              <div>
+                <img :src="contact.imageUrl" :alt="contact.name" class="circle">
+                {{ contact.name }}
+              </div>
+            </div>
+          </div>
         </div>
         <div class="rightApp">
           <div class="nav"></div>
