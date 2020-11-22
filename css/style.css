@@ -6,23 +6,15 @@
 
 .debug .container .leftApp, .debug .container .rightApp {
   border: 1px solid blue;
-  height: 100%;
 }
 
 .debug .container .leftApp > *, .debug .container .rightApp > * {
   border: 1px solid purple;
 }
 
-.debug .footer {
-  height: 100px;
-}
-
-.debug .main {
-  height: calc(100% - 160px);
-}
-
 
 /* USEFUL PROPERTIES */
+
 .circle {
   height: 50px;
   width: 50px;
@@ -39,12 +31,23 @@
 
 i {
   color: #B1B1B1;
+  margin: 0 0.5rem;
 }
 
 .btn {
   background-color: white;
   border: none;
   margin: 0 0.5rem;
+}
+
+.v-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.flex {
+  display: flex;
 }
 
 /* Layout Properties */
@@ -67,20 +70,25 @@ body {
 }
 
 .container {
+  padding: 0;
+  margin: 0;
   height: 90vh;
+  min-width: 900px;
   width: 80vw;
   display: flex;
+  background-color: white;
 }
 
 .container .leftApp {
   width: 35%;
+  border-right: 1px solid #D9D9D9;
 }
 
 .container .rightApp {
-  width: 65%;
+  width: calc(100% - 35%);
 }
 
-.nav, .alert {
+.nav, .alert, .footer {
   height: 60px;
 }
 
@@ -91,12 +99,8 @@ body {
   background-color: #EAEAEA;
 }
 
-.leftApp .nav .user > img {
-  vertical-align: text-top;
-  margin: 0 0.5rem;
-}
-
-.leftApp .nav i {
+.leftApp .nav .user > img, .rightApp .nav img {
+  vertical-align: middle;
   margin: 0 0.5rem;
 }
 
@@ -115,15 +119,15 @@ body {
   margin: 0 0.5rem;
 }
 
-.search {
+.leftApp .search {
   background-color: #FAFAFA;
   height: 40px;
   padding: 0.5rem;
   display: flex;
 }
 
-.search > input {
-  width: 100%;
+input {
+  width: 80%;
   border: 1px solid lightgrey;
   padding-left: 0.5rem;
 }
@@ -142,4 +146,30 @@ body {
 .leftApp .contact img {
   vertical-align: text-top;
   margin: 0 0.5rem;
+}
+
+.rightApp .nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rightApp .main {
+  background-image: url('../img/mine.jpg');
+  height: calc(100% - 120px);
+}
+
+.rightApp .footer {
+  background-color: #F3EEEA;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.rightApp .footer > i {
+  color: #6B7376;
+  font-size: 20px;
+}
+
+.rightApp .footer input {
+  height: 40px;
 }

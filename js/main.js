@@ -32,12 +32,13 @@ const myApp = new Vue({
         imageUrl: 'img/avatar_4.jpg',
         lastAccess: 'ultimo accesso'
       }
-    ]
+    ],
+    activeChat: 0
   },
   methods: {
 
   },
   computed: {
-    
+
   }
 })

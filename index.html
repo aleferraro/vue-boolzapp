@@ -32,7 +32,7 @@
     <script src="js/functions.js" charset="utf-8"></script>
 
   </head>
-  <body class="debug">
+  <body class="">
     <div id="root">
       <div class="container">
         <div class="leftApp">
@@ -72,9 +72,26 @@
           </div>
         </div>
         <div class="rightApp">
-          <div class="nav"></div>
+          <div class="nav">
+            <div class="flex">
+              <img :src="contacts[activeChat].imageUrl" :alt="contacts[activeChat].name" class="circle">
+              <div class="v-center">
+                <span>{{ contacts[activeChat].name }}</span>
+                <span class="grey">Ultimo accesso alle</span>
+              </div>
+            </div>
+            <div>
+              <i class="fas fa-search"></i>
+              <i class="fas fa-paperclip"></i>
+              <i class="fas fa-ellipsis-v"></i>
+            </div>
+          </div>
           <div class="main"></div>
-          <div class="footer"></div>
+          <div class="footer">
+            <i class="far fa-smile"></i>
+            <input type="text" name="message" placeholder="scrivi un messaggio">
+            <i class="fas fa-microphone"></i>
+          </div>
         </div>
       </div>
     </div>
