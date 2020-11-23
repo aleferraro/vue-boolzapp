@@ -58,6 +58,7 @@ i {
 }
 
 body {
+  width: 100vw;
   height: 100vh;
   background-image: linear-gradient(to bottom,
     #009688 0px,
@@ -70,22 +71,22 @@ body {
 }
 
 .container {
-  padding: 0;
-  margin: 0;
+  min-height: 350px;
   height: 90vh;
   min-width: 900px;
-  width: 80vw;
+  flex: 0 0 80%;
   display: flex;
   background-color: white;
 }
 
 .container .leftApp {
-  width: 35%;
+  flex: 0 0 300px;
   border-right: 1px solid #D9D9D9;
 }
 
 .container .rightApp {
-  width: calc(100% - 35%);
+  flex: 0 1 100%;
+  min-width: 350px;
 }
 
 .nav, .alert, .footer {
@@ -119,6 +120,10 @@ body {
   margin: 0 0.5rem;
 }
 
+.leftApp .alertIcon > i {
+  color: #8EDAFC;
+}
+
 .leftApp .search {
   background-color: #FAFAFA;
   height: 40px;
@@ -134,13 +139,20 @@ input {
 
 .leftApp .contacts {
   background-color: white;
-  height: calc(100% - 160px);
+  height: 280px;
+  max-height: calc(100% - 160px);
+  overflow-y: auto;
 }
 
 .leftApp .contact {
   height: 70px;
   display: flex;
   align-items: center;
+}
+
+.leftApp .contact:hover {
+  background-color: lightgrey;
+  cursor: pointer;
 }
 
 .leftApp .contact img {
@@ -153,9 +165,37 @@ input {
   justify-content: space-between;
 }
 
-.rightApp .main {
+.rightApp .chat {
   background-image: url('../img/mine.jpg');
   height: calc(100% - 120px);
+  overflow-y: auto;
+}
+
+.rightApp .chat .message {
+  max-width: 50%;
+  border: 1px solid lightgrey;
+  border-radius: 10px;
+  margin: 5px 15px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.message.sent {
+  background-color: #D5F9BA;
+  float: right;
+}
+
+.message.received {
+  background-color: white;
+  float: left;
+}
+
+.message > .date {
+  color: grey;
+  font-size: 12px;
+  align-self: flex-end;
+  margin: 5px 0 0 0;
 }
 
 .rightApp .footer {
@@ -172,4 +212,22 @@ input {
 
 .rightApp .footer input {
   height: 40px;
+}
+
+/* MEDIA QUERY */
+
+@media screen and (max-width: 900px) {
+  .container {
+    min-width: 650px;
+    flex: 0 0 100%;
+  }
+
+}
+
+@media screen and (max-width: 650px) {
+  .container {
+    position: absolute;
+    left: 0;
+  }
+
 }

@@ -8,37 +8,106 @@ const myApp = new Vue({
   el: '#root',
   data: {
     mainUser: {
-      name: 'Nome Utente',
+      name: 'Alessandro',
       imageUrl: 'img/avatar_io.jpg'
     },
     contacts: [
       {
         name: 'Michele',
         imageUrl: 'img/avatar_1.jpg',
-        lastAccess: 'ultimo accesso'
+        lastAccess: '20 Nov, 15.33',
+        messages: [
+          {
+            text: 'Ciao Michele!',
+            date: '15/11/2020 12.44',
+            sent: true
+          },
+          {
+            text: 'Come va?',
+            date: '15/11/2020 12.44',
+            sent: true
+          },
+          {
+            text: 'Ciao Ale! Io tutto ok! Tu?',
+            date: '15/11/2020 12.44',
+            sent: false
+          }
+        ]
       },
       {
         name: 'Fabio',
         imageUrl: 'img/avatar_2.jpg',
-        lastAccess: 'ultimo accesso'
+        lastAccess: 'oggi, 9.43',
+        messages: [
+          {
+            text: 'Ciao Michele!',
+            date: '15/11/2020 12.44',
+            sent: true
+          },
+          {
+            text: 'Come va?',
+            date: '15/11/2020 12.44',
+            sent: true
+          },
+          {
+            text: 'Ciao Ale! Io tutto ok! Tu?',
+            date: '15/11/2020 12.44',
+            sent: false
+          }
+        ]
       },
       {
         name: 'Samuele',
         imageUrl: 'img/avatar_3.jpg',
-        lastAccess: 'ultimo accesso'
+        lastAccess: 'ieri, 18.54',
+        messages: [
+          {
+            text: 'Ciao Michele!',
+            date: '15/11/2020 12.44',
+            sent: true
+          },
+          {
+            text: 'Come va?',
+            date: '15/11/2020 12.44',
+            sent: true
+          },
+          {
+            text: 'Ciao Ale! Io tutto ok! Tu?',
+            date: '15/11/2020 12.44',
+            sent: false
+          }
+        ]
       },
       {
         name: 'Luisa',
         imageUrl: 'img/avatar_4.jpg',
-        lastAccess: 'ultimo accesso'
+        lastAccess: '10 Ago, 12.00',
+        messages: [
+          {
+            text: 'Ciao Michele!',
+            date: '15/11/2020 12.44',
+            sent: true
+          },
+          {
+            text: 'Come va?',
+            date: '15/11/2020 12.44',
+            sent: true
+          },
+          {
+            text: 'Ciao Ale! Io tutto ok! Tu?',
+            date: '15/11/2020 12.44',
+            sent: false
+          }
+        ]
       }
     ],
     activeChat: 0
   },
   methods: {
-
+    selectChat: function(index){
+      this.activeChat = index
+    }
   },
   computed: {
-
   }
 })

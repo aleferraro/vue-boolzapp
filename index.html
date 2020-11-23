@@ -33,65 +33,81 @@
 
   </head>
   <body class="">
-    <div id="root">
-      <div class="container">
-        <div class="leftApp">
-          <div class="nav">
-            <div class="user">
-              <img :src="mainUser.imageUrl" :alt="mainUser.name" class="circle">
-              {{mainUser.name }}
-            </div>
+    <div id="root" class="container">
+      <div class="leftApp">
+        <div class="nav">
+          <div class="user">
+            <img :src="mainUser.imageUrl" :alt="mainUser.name" class="circle">
+            {{mainUser.name }}
+          </div>
+          <div>
+            <i class="fas fa-circle-notch"></i>
+            <i class="fas fa-comment-alt"></i>
+            <i class="fas fa-ellipsis-v"></i>
+          </div>
+        </div>
+        <div class="alert">
+          <div class="alertIcon circle">
+            <i class="fas fa-bell-slash"></i>
+          </div>
+          <div class="alertMessage">
+            <p>Ricevi notifiche di nuovi messaggi</p>
+            <p class="grey underline">Attiva notifiche desktop</p>
+          </div>
+        </div>
+        <div class="search">
+          <button class="btn">
+            <i class="fas fa-search"></i>
+          </button>
+          <input type="text" name="searcContacts" value="" placeholder="cerca o inizia una nuova chat">
+        </div>
+        <div class="contacts">
+          <div class="contact" v-for="(contact, index) in contacts" @click="selectChat(index)">
             <div>
-              <i class="fas fa-circle-notch"></i>
-              <i class="fas fa-comment-alt"></i>
-              <i class="fas fa-ellipsis-v"></i>
-            </div>
-          </div>
-          <div class="alert">
-            <div class="alertIcon circle">
-              <i class="fas fa-bell-slash"></i>
-            </div>
-            <div class="alertMessage">
-              <p>Ricevi notifiche di nuovi messaggi</p>
-              <p class="grey underline">Attiva notifiche desktop</p>
-            </div>
-          </div>
-          <div class="search">
-            <button class="btn">
-              <i class="fas fa-search"></i>
-            </button>
-            <input type="text" name="searcContacts" value="" placeholder="cerca o inizia una nuova chat">
-          </div>
-          <div class="contacts">
-            <div class="contact" v-for="contact in contacts">
-              <div>
-                <img :src="contact.imageUrl" :alt="contact.name" class="circle">
-                {{ contact.name }}
-              </div>
+              <img :src="contact.imageUrl" :alt="contact.name" class="circle">
+              {{ contact.name }}
             </div>
           </div>
         </div>
-        <div class="rightApp">
-          <div class="nav">
-            <div class="flex">
-              <img :src="contacts[activeChat].imageUrl" :alt="contacts[activeChat].name" class="circle">
-              <div class="v-center">
-                <span>{{ contacts[activeChat].name }}</span>
-                <span class="grey">Ultimo accesso alle</span>
-              </div>
-            </div>
-            <div>
-              <i class="fas fa-search"></i>
-              <i class="fas fa-paperclip"></i>
-              <i class="fas fa-ellipsis-v"></i>
+      </div>
+      <div class="rightApp">
+        <div class="nav">
+          <div class="flex">
+            <img :src="contacts[activeChat].imageUrl" :alt="contacts[activeChat].name" class="circle">
+            <div class="v-center">
+              <span>{{ contacts[activeChat].name }}</span>
+              <span class="grey">Ultimo accesso {{ contacts[activeChat].lastAccess }}</span>
             </div>
           </div>
-          <div class="main"></div>
-          <div class="footer">
-            <i class="far fa-smile"></i>
-            <input type="text" name="message" placeholder="scrivi un messaggio">
-            <i class="fas fa-microphone"></i>
+          <div>
+            <i class="fas fa-search"></i>
+            <i class="fas fa-paperclip"></i>
+            <i class="fas fa-ellipsis-v"></i>
           </div>
+        </div>
+        <div class="chat">
+          <div class="message sent">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <p class="date">
+              15/11/2020 12.44
+            </p>
+
+          </div>
+          <div class="message received">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <p class="date">
+              15/11/2020 12.44
+            </p>
+          </div>
+        </div>
+        <div class="footer">
+          <i class="far fa-smile"></i>
+          <input type="text" name="message" placeholder="scrivi un messaggio">
+          <i class="fas fa-microphone"></i>
         </div>
       </div>
     </div>
