@@ -29,6 +29,10 @@
   color: grey;
 }
 
+.grey-bg {
+  background-color: lightgrey;
+}
+
 i {
   color: #B1B1B1;
   margin: 0 0.5rem;

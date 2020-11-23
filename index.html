@@ -62,7 +62,7 @@
           <input type="text" name="searcContacts" value="" placeholder="cerca o inizia una nuova chat">
         </div>
         <div class="contacts">
-          <div class="contact" v-for="(contact, index) in contacts" @click="selectChat(index)">
+          <div class="contact" v-for="(contact, index) in contacts" @click="selectChat(index)" :class="isActive(index) && 'grey-bg'">
             <div>
               <img :src="contact.imageUrl" :alt="contact.name" class="circle">
               {{ contact.name }}

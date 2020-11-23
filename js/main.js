@@ -102,6 +102,11 @@ const myApp = new Vue({
     selectChat: function(index){
       this.activeChat = index
     },
+    isActive: function(index){
+      if(this.activeChat == index){
+        return true
+      }
+    }
   },
   computed: {
   }
