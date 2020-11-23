@@ -19,17 +19,17 @@ const myApp = new Vue({
         messages: [
           {
             text: 'Ciao Michele!',
-            date: '15/11/2020 12.44',
+            date: '19/11/2020 12.44',
             sent: true
           },
           {
             text: 'Come va?',
-            date: '15/11/2020 12.44',
+            date: '19/11/2020 12.44',
             sent: true
           },
           {
             text: 'Ciao Ale! Io tutto ok! Tu?',
-            date: '15/11/2020 12.44',
+            date: '19/11/2020 12.47',
             sent: false
           }
         ]
@@ -40,40 +40,35 @@ const myApp = new Vue({
         lastAccess: 'oggi, 9.43',
         messages: [
           {
-            text: 'Ciao Michele!',
-            date: '15/11/2020 12.44',
+            text: 'Ciao Ale! Che fai oggi? Vieni a giocare a calcetto?',
+            date: '18/11/2020 14.30',
+            sent: false
+          },
+          {
+            text: 'Hei Fabio! Ci sto! A che ora e dove?',
+            date: '18/11/2020 14.44',
             sent: true
           },
           {
-            text: 'Come va?',
-            date: '15/11/2020 12.44',
-            sent: true
-          },
-          {
-            text: 'Ciao Ale! Io tutto ok! Tu?',
-            date: '15/11/2020 12.44',
+            text: 'Ci vediamo al campo alle 18.00',
+            date: '18/11/2020 15.05',
             sent: false
           }
         ]
       },
       {
-        name: 'Samuele',
+        name: 'Stefano',
         imageUrl: 'img/avatar_3.jpg',
         lastAccess: 'ieri, 18.54',
         messages: [
           {
-            text: 'Ciao Michele!',
-            date: '15/11/2020 12.44',
+            text: 'Ci sei per una pizza domani sera?',
+            date: '15/11/2020 19.42',
             sent: true
           },
           {
-            text: 'Come va?',
-            date: '15/11/2020 12.44',
-            sent: true
-          },
-          {
-            text: 'Ciao Ale! Io tutto ok! Tu?',
-            date: '15/11/2020 12.44',
+            text: 'Si dai! è da tanto che non ci vediamo, così ti racconto un po di cose',
+            date: '15/11/2020 20.13',
             sent: false
           }
         ]
@@ -84,19 +79,19 @@ const myApp = new Vue({
         lastAccess: '10 Ago, 12.00',
         messages: [
           {
-            text: 'Ciao Michele!',
-            date: '15/11/2020 12.44',
+            text: 'Buongiorno!',
+            date: '12/11/2020 8.22',
             sent: true
           },
           {
-            text: 'Come va?',
-            date: '15/11/2020 12.44',
-            sent: true
-          },
-          {
-            text: 'Ciao Ale! Io tutto ok! Tu?',
-            date: '15/11/2020 12.44',
+            text: 'Buongiorno, mi sono appena svegliata.. Come va?',
+            date: '12/11/2020 10.44',
             sent: false
+          },
+          {
+            text: 'Tutto ok! Hai fatto le ore piccole? :D',
+            date: '12/11/2020 11.02',
+            sent: true
           }
         ]
       }
@@ -106,7 +101,7 @@ const myApp = new Vue({
   methods: {
     selectChat: function(index){
       this.activeChat = index
-    }
+    },
   },
   computed: {
   }

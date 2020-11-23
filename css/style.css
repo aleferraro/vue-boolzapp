@@ -34,6 +34,10 @@ i {
   margin: 0 0.5rem;
 }
 
+i:hover {
+  cursor: pointer;
+}
+
 .btn {
   background-color: white;
   border: none;
@@ -169,9 +173,12 @@ input {
   background-image: url('../img/mine.jpg');
   height: calc(100% - 120px);
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .rightApp .chat .message {
+  min-width: 200px;
   max-width: 50%;
   border: 1px solid lightgrey;
   border-radius: 10px;
@@ -179,16 +186,21 @@ input {
   padding: 15px;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .message.sent {
   background-color: #D5F9BA;
-  float: right;
+  align-self: flex-end;
 }
 
 .message.received {
   background-color: white;
-  float: left;
+  align-self: flex-start;
+}
+
+.message > .text {
+  padding-right: 50px;
 }
 
 .message > .date {
@@ -196,6 +208,17 @@ input {
   font-size: 12px;
   align-self: flex-end;
   margin: 5px 0 0 0;
+}
+
+.message > i {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  display: none;
+}
+
+.message:hover i {
+  display: block;
 }
 
 .rightApp .footer {
@@ -218,7 +241,7 @@ input {
 
 @media screen and (max-width: 900px) {
   .container {
-    min-width: 650px;
+    min-width: 670px;
     flex: 0 0 100%;
   }
 

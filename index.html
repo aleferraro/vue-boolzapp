@@ -86,22 +86,14 @@
           </div>
         </div>
         <div class="chat">
-          <div class="message sent">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          <div v-for="message in contacts[activeChat].messages" class="message" :class="message.sent ? 'sent' : 'received'">
+            <p class="text">
+              {{ message.text }}
             </p>
             <p class="date">
-              15/11/2020 12.44
+              {{ message.date }}
             </p>
-
-          </div>
-          <div class="message received">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-            <p class="date">
-              15/11/2020 12.44
-            </p>
+            <i class="fas fa-chevron-down"></i>
           </div>
         </div>
         <div class="footer">
