@@ -96,7 +96,9 @@ const myApp = new Vue({
         ]
       }
     ],
-    activeChat: 0
+    activeChat: 0,
+    newMessage: '',
+    filter: ''
   },
   methods: {
     selectChat: function(index){
@@ -106,7 +108,38 @@ const myApp = new Vue({
       if(this.activeChat == index){
         return true
       }
-    }
+    },
+    pushMessage: function(){
+      let newMessageObj = {
+        text: this.newMessage,
+        date: this.actualTime(),
+        sent: true
+      };
+      this.contacts[this.activeChat].messages.push(newMessageObj);
+
+      this.newMessage = '';
+
+      window.setTimeout(this.pushResponse, 3000);
+    },
+    pushResponse: function(){
+      const automaticRespose = {
+        text: 'ciao!',
+        date: this.actualTime(),
+        sent: false
+      };
+
+      this.contacts[this.activeChat].messages.push(automaticRespose);
+    },
+    actualTime: function(){
+      let today = new Date();
+      let gg = String(today.getDate()).padStart(2, 0);
+      let mm = String(today.getMonth() + 1).padStart(2, '0');
+      let yyyy = today.getFullYear();
+      let hours = today.getHours();
+      let minutes = today.getMinutes();
+
+      return `${gg}/${mm}/${yyyy} ${hours}.${minutes}`;
+    },
   },
   computed: {
   }
