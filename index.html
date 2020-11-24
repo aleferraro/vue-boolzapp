@@ -20,9 +20,6 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
 
-    <!-- Custom JavaScript Functions -->
-    <script src="js/functions.js" charset="utf-8"></script>
-
   </head>
   <body class="">
     <div id="root" class="container">
@@ -55,10 +52,10 @@
           <button class="btn">
             <i class="fas fa-search"></i>
           </button>
-          <input type="text" name="searcContacts" value="" placeholder="cerca o inizia una nuova chat">
+          <input v-model="filter" type="text" name="searcContacts" value="" placeholder="cerca o inizia una nuova chat">
         </div>
         <div class="contacts">
-          <div class="contact" v-for="(contact, index) in contacts" @click="selectChat(index)" :class="isActive(index) && 'grey-bg'">
+          <div class="contact capitalize" v-for="(contact, index) in filterContacts" @click="selectChat(index)" :class="isActive(index) && 'grey-bg'">
             <div>
               <img :src="contact.imageUrl" :alt="contact.name" class="circle">
               {{ contact.name }}
@@ -71,7 +68,7 @@
           <div class="flex">
             <img :src="contacts[activeChat].imageUrl" :alt="contacts[activeChat].name" class="circle">
             <div class="v-center">
-              <span>{{ contacts[activeChat].name }}</span>
+              <span class="capitalize">{{ contacts[activeChat].name }}</span>
               <span class="grey">Ultimo accesso {{ contacts[activeChat].lastAccess }}</span>
             </div>
           </div>
@@ -82,7 +79,7 @@
           </div>
         </div>
         <div class="chat">
-          <div v-for="message in contacts[activeChat].messages" class="message" :class="message.sent ? 'sent' : 'received'">
+          <div v-for="message in contacts[activeChat].messages" class="message word-break" :class="message.sent ? 'sent' : 'received'">
             <p class="text">
               {{ message.text }}
             </p>
@@ -99,7 +96,6 @@
         </div>
       </div>
     </div>
-
 
     <!-- Custom JavaScript -->
     <script src="js/main.js" charset="utf-8"></script>
