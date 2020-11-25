@@ -145,17 +145,18 @@ const myApp = new Vue({
 
       this.newMessage = '';
 
-      window.setTimeout(this.pushAnswer, 3000);
+      let currectContact = this.activeContact;
+      window.setTimeout(() => {this.pushAnswer(currectContact)}, 3000);
     },
     // set the automatic answer
-    pushAnswer: function(){
+    pushAnswer: function(contact){
       const automaticRespose = {
         text: this.possibleAnswers[Math.floor(Math.random() * this.possibleAnswers.length)],
         date: this.actualTime(),
         sent: false
       };
 
-      this.activeContact.messages.push(automaticRespose);
+      contact.messages.push(automaticRespose);
     },
     //set the data that will appear in every new message
     actualTime: function(){
