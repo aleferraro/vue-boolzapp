@@ -235,6 +235,23 @@ input {
   display: block;
 }
 
+.messageMenu {
+  background-color: white;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  padding: 5px;
+  width: 150px;
+  list-style: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  display: none;
+}
+
+.message > i:hover .messageMenu {
+  display: block;
+}
+
 .rightApp .footer {
   background-color: #F3EEEA;
   display: flex;

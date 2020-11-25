@@ -55,7 +55,7 @@
           <input v-model="filter" type="text" name="searcContacts" value="" placeholder="cerca o inizia una nuova chat">
         </div>
         <div class="contacts">
-          <div class="contact capitalize" v-for="(contact, index) in filterContacts" @click="selectChat(index)" :class="isActive(index) && 'grey-bg'">
+          <div class="contact capitalize" v-for="(contact, index) in filteredContacts" @click="selectChat(contact)" :class="isActive(contact) && 'grey-bg'">
             <div>
               <img :src="contact.imageUrl" :alt="contact.name" class="circle">
               {{ contact.name }}
@@ -66,10 +66,10 @@
       <div class="rightApp">
         <div class="nav">
           <div class="flex">
-            <img :src="contacts[activeChat].imageUrl" :alt="contacts[activeChat].name" class="circle">
+            <img :src="activeContact.imageUrl" :alt="activeContact.name" class="circle">
             <div class="v-center">
-              <span class="capitalize">{{ contacts[activeChat].name }}</span>
-              <span class="grey">Ultimo accesso {{ contacts[activeChat].lastAccess }}</span>
+              <span class="capitalize">{{ activeContact.name }}</span>
+              <span class="grey">Ultimo accesso {{ activeContact.lastAccess }}</span>
             </div>
           </div>
           <div>
@@ -78,15 +78,19 @@
             <i class="fas fa-ellipsis-v"></i>
           </div>
         </div>
-        <div class="chat">
-          <div v-for="message in contacts[activeChat].messages" class="message word-break" :class="message.sent ? 'sent' : 'received'">
+        <div id="chat" class="chat">
+          <div v-for="(message,index) in activeContact.messages" class="message word-break" :class="message.sent ? 'sent' : 'received'">
             <p class="text">
               {{ message.text }}
             </p>
             <p class="date">
               {{ message.date }}
             </p>
-            <i class="fas fa-chevron-down"></i>
+            <i class="fas fa-chevron-down">
+              <ul class="messageMenu">
+                <li @click="deleteMessage(index)">Cancella messaggio</li>
+              </ul>
+            </i>
           </div>
         </div>
         <div class="footer">

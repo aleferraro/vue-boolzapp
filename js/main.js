@@ -98,8 +98,8 @@ const myApp = new Vue({
         ]
       }
     ],
-    // gives an index to the active chat
-    activeChat: 0,
+    // gives an object to the active chat
+    activeContact: null,
     //initialize the new message, it will be refreshed changing the text in the message bar
     newMessage: '',
     //a list of possible answers
@@ -120,39 +120,42 @@ const myApp = new Vue({
     //takes input form the search box
     filter: ''
   },
+  created(){
+    this.activeContact = this.contacts[0]
+  },
   methods: {
     //allows the viewing of the active chat
-    selectChat: function(index){
-      this.activeChat = index
+    selectChat: function(contact){
+      this.activeContact = contact
     },
     //use this function to set background color on the active chat
-    isActive: function(index){
-      if(this.activeChat == index){
+    isActive: function(contact){
+      if(this.activeContact == contact){
         return true
       }
     },
-    //push the new message in the message array and allow us to view the message in the chat, after 3 seconds an automatic response will appear
+    //push the new message in the message array and allow us to view the message in the chat, after 3 seconds an automatic answer will appear
     pushMessage: function(){
       let newMessageObj = {
         text: this.newMessage,
         date: this.actualTime(),
         sent: true
       };
-      this.contacts[this.activeChat].messages.push(newMessageObj);
+      this.activeContact.messages.push(newMessageObj);
 
       this.newMessage = '';
 
-      window.setTimeout(this.pushResponse, 3000);
+      window.setTimeout(this.pushAnswer, 3000);
     },
-    // set the automatic response
-    pushResponse: function(){
+    // set the automatic answer
+    pushAnswer: function(){
       const automaticRespose = {
         text: this.possibleAnswers[Math.floor(Math.random() * this.possibleAnswers.length)],
         date: this.actualTime(),
         sent: false
       };
 
-      this.contacts[this.activeChat].messages.push(automaticRespose);
+      this.activeContact.messages.push(automaticRespose);
     },
     //set the data that will appear in every new message
     actualTime: function(){
@@ -165,15 +168,18 @@ const myApp = new Vue({
 
       return `${gg}/${mm}/${yyyy} ${hours}.${minutes}`;
     },
+    deleteMessage: function(index){
+      this.activeContact.messages.splice(index, 1)
+    }
   },
   computed: {
     //filter the cntacts array by name and give us back the filtered list or the initital list
-    filterContacts: function() {
+    filteredContacts: function() {
 
       if(this.filter == ''){
         return this.contacts
       } else {
-        return  this.contacts.filter(contact => contact.name.includes(this.filter))
+        return  this.contacts.filter(contact => contact.name.toLowerCase().includes(this.filter.toLowerCase()))
       }
 
     }
