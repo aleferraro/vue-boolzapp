@@ -1,8 +1,64 @@
 /*
 Milestone 1:
+
 Grafica (80%): realizzare l'interfaccia grafica prima nella sua struttura portante (HTML) per intero, successivamente dedicatevi ai dettagli stilistici (CSS)
 Logica (20%): inizializzare l'istanza Vue per il controllo dell'app. Inserire i dati necessari a generare le parti dell'interfaccia che dipendono da questi dati ( TEMPLATE HTML + JS )
+
+Milestone 2:
+
+- Possibilita' di selezionare un contatto e mostrare la chat relativa a quel contatto nel box dei messagi ( nome, last seen e storico messaggi )
+- Il contatto selezionato nella sidebar cambia il suo background color
+- I messaggi, oltre al testo e alla data, hanno un determinato stato, ricevuto o inviato, e in base a questo deve mostrarsi come in figura
+
+Milestone 3:
+
+Abilitare l'utente all'invio dei messaggi. Fare in modo che l'utente possa inserire un testo nell'input predisposto e che alla pressione del tasto 'Enter' questo messaggio si visualizzi correttamente nell'interfaccia ( diventa parte dello storico dei messaggi relativi a quell'utente... ). Inoltre, dopo 3 secondi dall'evento di invio messaggio, simulare una risposta standard da parte del contatto attivo in quel momento.
+
+Milestone 4:
+
+Abilitare l'utente a filtrare i contatti nella sezione di sinistra. Il filtraggio deve attivarsi quando l'utente inizia a inserire dei caratteri nell'input ed il confronto (inclusione... ) deve essere fatto con il nome dei contatti.
+
 */
+
+const emoticons = [
+  'surprise',
+  'smile-wink',
+  'smile-beam',
+  'sad-tear',
+  'sad-cry',
+  'meh-rolling-eyes',
+  'meh-blank',
+  'meh',
+  'grin-wink',
+  'grin-stars',
+  'grin-squint-tears',
+  'grin-squint',
+  'grin-hearts',
+  'grin-beam',
+  'grin-alt',
+  'grin',
+  'tired',
+  'smile',
+  'laugh-wink',
+  'laugh-squint',
+  'laugh-beam',
+  'laugh',
+  'kiss-wink-heart',
+  'kiss-beam',
+  'kiss',
+  'grin-tongue-wink',
+  'grin-tongue-squint',
+  'grin-tongue',
+  'grin-tears',
+  'grin-beam-sweat',
+  'grimace',
+  'frown-open',
+  'frown',
+  'flushed',
+  'angry',
+  'dizzy'
+]
+
 
 const myApp = new Vue({
   el: '#root',
@@ -118,7 +174,8 @@ const myApp = new Vue({
       'il mio gatto fa le fusa'
     ],
     //takes input form the search box
-    filter: ''
+    filter: '',
+    icons: [...emoticons]
   },
   created(){
     this.activeContact = this.contacts[0]

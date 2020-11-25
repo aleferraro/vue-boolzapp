@@ -259,13 +259,46 @@ input {
   align-items: center;
 }
 
-.rightApp .footer > i {
+.rightApp .footer i {
   color: #6B7376;
   font-size: 20px;
 }
 
 .rightApp .footer input {
   height: 40px;
+}
+
+.icons-box {
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.icons-box:hover #icons {
+  display: flex;
+}
+
+#icons {
+  height: 150px;
+  width: 300px;
+  padding: 10px;
+  background-color: #F3EEEA;
+  border: 1px solid lightgrey;
+  overflow-y: auto;
+  display: none;
+  flex-wrap: wrap;
+  position: absolute;
+  bottom: 100%;
+}
+
+#icons i {
+  color: #F1A732;
+}
+
+#icons > div {
+  width: 25px;
+  margin: 5px;
 }
 
 /* MEDIA QUERY */

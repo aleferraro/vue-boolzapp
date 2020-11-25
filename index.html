@@ -94,7 +94,15 @@
           </div>
         </div>
         <div class="footer">
-          <i class="far fa-smile"></i>
+          <div class="icons-box">
+            <i class="far fa-smile"></i>
+            <div id="icons">
+              <div v-for="icon in icons">
+                <i class="fas" :class="'fa-' + icon"></i>
+              </div>
+            </div>
+
+          </div>
           <input type="text" name="message" v-model="newMessage" @keydown.enter="pushMessage" placeholder="scrivi un messaggio">
           <i class="fas fa-microphone"></i>
         </div>
