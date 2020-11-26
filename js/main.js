@@ -57,7 +57,7 @@ const emoticons = [
   'flushed',
   'angry',
   'dizzy'
-]
+];
 
 
 const myApp = new Vue({
@@ -202,6 +202,8 @@ const myApp = new Vue({
 
       this.newMessage = '';
 
+      window.setTimeout(() => {this.scrollToEnd()}, 100);
+
       let currectContact = this.activeContact;
       window.setTimeout(() => {this.pushAnswer(currectContact)}, 3000);
     },
@@ -214,6 +216,12 @@ const myApp = new Vue({
       };
 
       contact.messages.push(automaticRespose);
+
+      window.setTimeout(() => {this.scrollToEnd()}, 100);
+    },
+    scrollToEnd: function(){
+    var element = this.$el.querySelector("#chat");
+    element.scrollTop = element.scrollHeight;
     },
     //set the data that will appear in every new message
     actualTime: function(){
