@@ -236,6 +236,9 @@ const myApp = new Vue({
     },
     deleteMessage: function(index){
       this.activeContact.messages.splice(index, 1)
+    },
+    lastMessage: function(contact){
+      return contact.messages[contact.messages.length - 1].text
     }
   },
   computed: {

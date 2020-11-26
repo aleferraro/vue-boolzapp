@@ -62,6 +62,11 @@ i:hover {
   display: flex;
 }
 
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
 .word-break {
     -ms-word-break: break-all;
     word-break: break-all;
@@ -176,6 +181,14 @@ input {
 .leftApp .contact img {
   vertical-align: text-top;
   margin: 0 0.5rem;
+}
+
+.leftApp .contact .lastMessage {
+  width: 200px;
+  text-transform: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .rightApp .nav {
